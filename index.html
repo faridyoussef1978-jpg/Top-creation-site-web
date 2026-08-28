@@ -1,1 +1,148 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=fr/"></head><body>Top Création Site Web — <a href="fr/">Entrer</a></body></html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Top Création Site Web</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f6f8fc;color:#172033}
+header{background:#101c3c;color:white;padding:18px 6%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.logo{font-size:21px;font-weight:bold}.lang button{border:0;border-radius:8px;padding:8px 11px;margin:3px;cursor:pointer}
+.hero{text-align:center;padding:70px 7%;background:linear-gradient(135deg,#101c3c,#2458a6);color:white}
+.hero h1{font-size:42px;margin:0 0 15px}.hero p{font-size:19px;max-width:700px;margin:auto}
+.btn{display:inline-block;margin-top:25px;background:#25D366;color:white;padding:14px 24px;border-radius:10px;text-decoration:none;font-weight:bold}
+section{padding:55px 7%}h2{text-align:center;font-size:30px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:1000px;margin:30px auto}
+.card{background:white;padding:27px;border-radius:16px;box-shadow:0 5px 20px #00000012;text-align:center}
+.price{font-size:34px;font-weight:bold;color:#2458a6}
+.portfolio{background:#eef3fb}
+.demo{height:145px;border-radius:12px;padding:20px;color:white;display:flex;align-items:end;font-size:20px;font-weight:bold}
+.hotel{background:linear-gradient(135deg,#805a3b,#d2a66d)}
+.business{background:linear-gradient(135deg,#18375d,#4d82bd)}
+.beauty{background:linear-gradient(135deg,#8a536e,#d69db7)}
+.contact{text-align:center}
+footer{text-align:center;background:#101c3c;color:white;padding:25px}
+@media(max-width:600px){.hero h1{font-size:32px}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">TOP CRÉATION SITE WEB</div>
+<div class="lang">
+<button onclick="setLang('fr')">FR</button>
+<button onclick="setLang('en')">EN</button>
+<button onclick="setLang('ar')">العربية</button>
+</div>
+</header>
+
+<div id="content"></div>
+
+<script>
+const phone="212698153167";
+
+const data={
+fr:{
+hero:"Votre site web professionnel à prix accessible",
+sub:"Un site moderne, rapide et adapté aux téléphones pour présenter votre activité et développer votre présence en ligne.",
+order:"Commander sur WhatsApp",
+services:"Nos offres",
+create:"Création de site web",
+createText:"Un site professionnel, moderne et responsive.",
+maintenance:"Maintenance",
+maintenanceText:"Mises à jour et assistance pour votre site.",
+custom:"Projet personnalisé",
+quote:"Sur devis",
+customText:"Une solution adaptée aux besoins de votre activité.",
+portfolio:"Des sites qui inspirent confiance",
+p1:"Riad Atlas — Hôtel, riad & location",
+p2:"Cabinet Nova — Cabinet & entreprise",
+p3:"Maison Lina — Beauté & bien-être",
+contact:"Vous avez un projet ?",
+contactText:"Contactez-nous directement sur WhatsApp pour discuter de votre futur site.",
+footer:"© 2026 Top Création Site Web — Création de sites web à prix accessible."
+},
+en:{
+hero:"Professional websites at an affordable price",
+sub:"A modern, fast and mobile-friendly website to showcase your business and grow your online presence.",
+order:"Order on WhatsApp",
+services:"Our offers",
+create:"Website creation",
+createText:"A professional, modern and responsive website.",
+maintenance:"Maintenance",
+maintenanceText:"Updates and support for your website.",
+custom:"Custom project",
+quote:"On request",
+customText:"A solution tailored to your business needs.",
+portfolio:"Websites designed to build trust",
+p1:"Riad Atlas — Hotel, riad & rental",
+p2:"Nova Advisory — Consulting & business",
+p3:"Maison Lina — Beauty & wellness",
+contact:"Have a project?",
+contactText:"Contact us directly on WhatsApp to discuss your future website.",
+footer:"© 2026 Top Création Site Web — Affordable professional websites."
+},
+ar:{
+hero:"موقع إلكتروني احترافي بسعر مناسب",
+sub:"نصمم لك موقعاً حديثاً وسريعاً ومتوافقاً مع الهاتف لتقديم نشاطك وتطوير حضورك على الإنترنت.",
+order:"اطلب عبر واتساب",
+services:"عروضنا",
+create:"إنشاء موقع إلكتروني",
+createText:"موقع احترافي وحديث ومتوافق مع الهاتف.",
+maintenance:"الصيانة",
+maintenanceText:"تحديثات ومواكبة مستمرة لموقعك.",
+custom:"مشروع حسب الطلب",
+quote:"حسب الطلب",
+customText:"حل مناسب لاحتياجات مشروعك ونشاطك.",
+portfolio:"نماذج احترافية تبني الثقة",
+p1:"Riad Atlas — فندق، رياض وإقامة سياحية",
+p2:"Nova Advisory — شركة ومكتب مهني",
+p3:"Maison Lina — الجمال والعناية",
+contact:"عندك مشروع؟",
+contactText:"تواصل معنا مباشرة عبر واتساب لمناقشة موقعك الإلكتروني.",
+footer:"© 2026 Top Création Site Web — إنشاء مواقع إلكترونية بأسعار مناسبة."
+}
+};
+
+function setLang(l){
+let x=data[l];
+document.documentElement.lang=l;
+document.body.dir=l==="ar"?"rtl":"ltr";
+document.getElementById("content").innerHTML=`
+<div class="hero">
+<h1>${x.hero}</h1>
+<p>${x.sub}</p>
+<a class="btn" href="https://wa.me/${phone}?text=${encodeURIComponent(x.order)}">${x.order}</a>
+</div>
+
+<section>
+<h2>${x.services}</h2>
+<div class="cards">
+<div class="card"><h3>${x.create}</h3><div class="price">21 €</div><p>${x.createText}</p></div>
+<div class="card"><h3>${x.maintenance}</h3><div class="price">9 €</div><p>${x.maintenanceText}</p></div>
+<div class="card"><h3>${x.custom}</h3><div class="price">${x.quote}</div><p>${x.customText}</p></div>
+</div>
+</section>
+
+<section class="portfolio">
+<h2>${x.portfolio}</h2>
+<div class="cards">
+<div class="card"><div class="demo hotel">${x.p1}</div></div>
+<div class="card"><div class="demo business">${x.p2}</div></div>
+<div class="card"><div class="demo beauty">${x.p3}</div></div>
+</div>
+</section>
+
+<section class="contact">
+<h2>${x.contact}</h2>
+<p>${x.contactText}</p>
+<a class="btn" href="https://wa.me/${phone}">WhatsApp<br>+212 6 98 15 31 67</a>
+</section>
+
+<footer>${x.footer}<br>WhatsApp : +212 6 98 15 31 67</footer>`;
+}
+
+setLang("fr");
+</script>
+</body>
+</html>
