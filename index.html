@@ -16,11 +16,13 @@ header{background:#101c3c;color:white;padding:18px 6%;display:flex;justify-conte
 .hero p{font-size:19px;max-width:700px;margin:auto}
 .btn{display:inline-block;margin-top:25px;background:#25D366;color:white;padding:14px 24px;border-radius:10px;text-decoration:none;font-weight:bold}
 .paybtn{display:inline-block;margin-top:15px;background:#0070ba;color:white;padding:14px 22px;border-radius:10px;text-decoration:none;font-weight:bold}
+.orderbtn{display:inline-block;margin-top:12px;background:#101c3c;color:white;padding:14px 22px;border-radius:10px;text-decoration:none;font-weight:bold}
 section{padding:55px 7%}
 h2{text-align:center;font-size:30px}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:1000px;margin:30px auto}
 .card{background:white;padding:27px;border-radius:16px;box-shadow:0 5px 20px #00000012;text-align:center}
 .price{font-size:34px;font-weight:bold;color:#2458a6}
+.steps{font-size:14px;line-height:1.5;margin-top:18px}
 .portfolio{background:#eef3fb}
 .demo{height:145px;border-radius:12px;padding:20px;color:white;display:flex;align-items:end;font-size:20px;font-weight:bold}
 .hotel{background:linear-gradient(135deg,#805a3b,#d2a66d)}
@@ -36,6 +38,7 @@ footer{text-align:center;background:#101c3c;color:white;padding:25px}
 
 <header>
 <div class="logo">TOP CRÉATION SITE WEB</div>
+
 <div class="lang">
 <button onclick="setLang('fr')">FR</button>
 <button onclick="setLang('en')">EN</button>
@@ -46,149 +49,298 @@ footer{text-align:center;background:#101c3c;color:white;padding:25px}
 <div id="content"></div>
 
 <script>
+
 const phone="212698153167";
 
 const paypal21="https://www.paypal.com/ncp/payment/KHAZVQJBHR4B6";
 const paypal9="https://www.paypal.com/ncp/payment/HCCNLKQPYCQ2S";
 
+const orderForm="https://tally.so/r/Ek7oMo";
+
 const data={
+
 fr:{
 hero:"Votre site web professionnel à prix accessible",
 sub:"Un site moderne, rapide et adapté aux téléphones pour présenter votre activité et développer votre présence en ligne.",
-order:"Commander sur WhatsApp",
+order:"Nous contacter sur WhatsApp",
+
 services:"Nos offres",
+
 create:"Création de site web",
 createText:"Un site professionnel, moderne et responsive.",
-pay21:"Payer 21 € avec PayPal",
+pay21:"1. Payer 21 € avec PayPal",
+form:"2. Compléter votre commande",
+steps:"Après le paiement, remplissez le formulaire afin que nous recevions automatiquement toutes les informations nécessaires.",
+
 maintenance:"Maintenance",
 maintenanceText:"Mises à jour et assistance pour votre site.",
-pay9:"Payer 9 € avec PayPal",
+pay9:"1. Payer 9 € avec PayPal",
+
 custom:"Projet personnalisé",
 quote:"Sur devis",
 customText:"Une solution adaptée aux besoins de votre activité.",
+customOrder:"Demander un devis",
+
 portfolio:"Des sites qui inspirent confiance",
 p1:"Riad Atlas — Hôtel, riad & location",
 p2:"Cabinet Nova — Cabinet & entreprise",
 p3:"Maison Lina — Beauté & bien-être",
+
 contact:"Vous avez un projet ?",
-contactText:"Contactez-nous directement sur WhatsApp pour discuter de votre futur site.",
+contactText:"Vous pouvez envoyer directement votre demande grâce à notre formulaire de commande.",
+formMain:"Commander maintenant",
+
+whatsapp:"Ou contactez-nous sur WhatsApp",
+
 footer:"© 2026 Top Création Site Web — Création de sites web à prix accessible."
 },
 
 en:{
 hero:"Professional websites at an affordable price",
 sub:"A modern, fast and mobile-friendly website to showcase your business and grow your online presence.",
-order:"Order on WhatsApp",
+order:"Contact us on WhatsApp",
+
 services:"Our offers",
+
 create:"Website creation",
 createText:"A professional, modern and responsive website.",
-pay21:"Pay €21 with PayPal",
+pay21:"1. Pay €21 with PayPal",
+form:"2. Complete your order",
+steps:"After payment, complete the order form so we automatically receive all the information needed for your project.",
+
 maintenance:"Maintenance",
 maintenanceText:"Updates and support for your website.",
-pay9:"Pay €9 with PayPal",
+pay9:"1. Pay €9 with PayPal",
+
 custom:"Custom project",
 quote:"On request",
 customText:"A solution tailored to your business needs.",
+customOrder:"Request a quote",
+
 portfolio:"Websites designed to build trust",
 p1:"Riad Atlas — Hotel, riad & rental",
 p2:"Nova Advisory — Consulting & business",
 p3:"Maison Lina — Beauty & wellness",
+
 contact:"Have a project?",
-contactText:"Contact us directly on WhatsApp to discuss your future website.",
+contactText:"You can send your request directly using our online order form.",
+formMain:"Order now",
+
+whatsapp:"Or contact us on WhatsApp",
+
 footer:"© 2026 Top Création Site Web — Affordable professional websites."
 },
 
 ar:{
 hero:"موقع إلكتروني احترافي بسعر مناسب",
 sub:"نصمم لك موقعاً حديثاً وسريعاً ومتوافقاً مع الهاتف لتقديم نشاطك وتطوير حضورك على الإنترنت.",
-order:"اطلب عبر واتساب",
+order:"تواصل معنا عبر واتساب",
+
 services:"عروضنا",
+
 create:"إنشاء موقع إلكتروني",
 createText:"موقع احترافي وحديث ومتوافق مع الهاتف.",
-pay21:"الدفع 21 € عبر PayPal",
+pay21:"1. الدفع 21 € عبر PayPal",
+form:"2. إكمال طلبك",
+steps:"بعد الدفع، قم بملء نموذج الطلب لكي نتوصل تلقائياً بجميع المعلومات اللازمة لإنجاز مشروعك.",
+
 maintenance:"الصيانة",
 maintenanceText:"تحديثات ومواكبة مستمرة لموقعك.",
-pay9:"الدفع 9 € عبر PayPal",
+pay9:"1. الدفع 9 € عبر PayPal",
+
 custom:"مشروع حسب الطلب",
 quote:"حسب الطلب",
 customText:"حل مناسب لاحتياجات مشروعك ونشاطك.",
+customOrder:"طلب عرض سعر",
+
 portfolio:"نماذج احترافية تبني الثقة",
 p1:"Riad Atlas — فندق، رياض وإقامة سياحية",
 p2:"Nova Advisory — شركة ومكتب مهني",
 p3:"Maison Lina — الجمال والعناية",
+
 contact:"عندك مشروع؟",
-contactText:"تواصل معنا مباشرة عبر واتساب لمناقشة موقعك الإلكتروني.",
+contactText:"يمكنك إرسال طلبك مباشرة من خلال نموذج الطلب الإلكتروني.",
+formMain:"أرسل طلبك الآن",
+
+whatsapp:"أو تواصل معنا عبر واتساب",
+
 footer:"© 2026 Top Création Site Web — إنشاء مواقع إلكترونية بأسعار مناسبة."
 }
+
 };
 
 function setLang(l){
+
 let x=data[l];
+
 document.documentElement.lang=l;
 document.body.dir=l==="ar"?"rtl":"ltr";
 
 document.getElementById("content").innerHTML=`
 
 <div class="hero">
+
 <h1>${x.hero}</h1>
+
 <p>${x.sub}</p>
-<a class="btn" href="https://wa.me/${phone}?text=${encodeURIComponent(x.order)}">${x.order}</a>
+
+<a class="btn"
+href="https://wa.me/${phone}?text=${encodeURIComponent(x.order)}"
+target="_blank"
+rel="noopener">
+${x.order}
+</a>
+
 </div>
 
 <section>
+
 <h2>${x.services}</h2>
 
 <div class="cards">
 
 <div class="card">
+
 <h3>${x.create}</h3>
+
 <div class="price">21 €</div>
+
 <p>${x.createText}</p>
-<a class="paybtn" href="${paypal21}" target="_blank" rel="noopener">${x.pay21}</a>
+
+<a class="paybtn"
+href="${paypal21}"
+target="_blank"
+rel="noopener">
+${x.pay21}
+</a>
+
+<br>
+
+<a class="orderbtn"
+href="${orderForm}"
+target="_blank"
+rel="noopener">
+${x.form}
+</a>
+
+<p class="steps">${x.steps}</p>
+
 </div>
 
 <div class="card">
+
 <h3>${x.maintenance}</h3>
+
 <div class="price">9 €</div>
+
 <p>${x.maintenanceText}</p>
-<a class="paybtn" href="${paypal9}" target="_blank" rel="noopener">${x.pay9}</a>
+
+<a class="paybtn"
+href="${paypal9}"
+target="_blank"
+rel="noopener">
+${x.pay9}
+</a>
+
+<br>
+
+<a class="orderbtn"
+href="${orderForm}"
+target="_blank"
+rel="noopener">
+${x.form}
+</a>
+
+<p class="steps">${x.steps}</p>
+
 </div>
 
 <div class="card">
+
 <h3>${x.custom}</h3>
+
 <div class="price">${x.quote}</div>
+
 <p>${x.customText}</p>
+
+<a class="orderbtn"
+href="${orderForm}"
+target="_blank"
+rel="noopener">
+${x.customOrder}
+</a>
+
 </div>
 
 </div>
+
 </section>
 
 <section class="portfolio">
+
 <h2>${x.portfolio}</h2>
 
 <div class="cards">
-<div class="card"><div class="demo hotel">${x.p1}</div></div>
-<div class="card"><div class="demo business">${x.p2}</div></div>
-<div class="card"><div class="demo beauty">${x.p3}</div></div>
+
+<div class="card">
+<div class="demo hotel">${x.p1}</div>
 </div>
+
+<div class="card">
+<div class="demo business">${x.p2}</div>
+</div>
+
+<div class="card">
+<div class="demo beauty">${x.p3}</div>
+</div>
+
+</div>
+
 </section>
 
 <section class="contact">
+
 <h2>${x.contact}</h2>
+
 <p>${x.contactText}</p>
-<a class="btn" href="https://wa.me/${phone}">
-WhatsApp<br>+212 6 98 15 31 67
+
+<a class="orderbtn"
+href="${orderForm}"
+target="_blank"
+rel="noopener">
+${x.formMain}
 </a>
+
+<br><br>
+
+<p>${x.whatsapp}</p>
+
+<a class="btn"
+href="https://wa.me/${phone}"
+target="_blank"
+rel="noopener">
+WhatsApp<br>
++212 6 98 15 31 67
+</a>
+
 </section>
 
 <footer>
-${x.footer}<br>
+
+${x.footer}
+
+<br>
+
 WhatsApp : +212 6 98 15 31 67
+
 </footer>
+
 `;
+
 }
 
 setLang("fr");
+
 </script>
 
 </body>
